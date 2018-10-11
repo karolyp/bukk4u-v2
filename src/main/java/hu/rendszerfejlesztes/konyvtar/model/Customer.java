@@ -1,4 +1,4 @@
-package bookstore.model;
+package hu.rendszerfejlesztes.konyvtar.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
