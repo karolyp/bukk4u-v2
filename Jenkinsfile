@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        withMaven(publisherStrategy: 'IMPLICIT') {
+        withMaven(publisherStrategy: 'IMPLICIT', maven: '/opt/apache-maven-3.5.4/bin/mvn') {
           sh 'mvn clean package'
         }
 
