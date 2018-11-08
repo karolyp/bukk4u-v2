@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Regisztráció</h1>
+<mat-dialog-content>
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Felhasználónév">
+  </mat-form-field>
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Jelszó" type="password">
+  </mat-form-field>
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Jelszó újra" type="password">
+  </mat-form-field>
+  <mat-checkbox class="full-width">Az adatvédelmi tájékoztatót elolvastam és megértettem.</mat-checkbox>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="accent" [mat-dialog-close]="true">Regisztráció</button>
+</mat-dialog-actions>

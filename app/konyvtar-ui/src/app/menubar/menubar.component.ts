@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material';
 import {LoginModalComponent} from './login/loginmodal.component';
+import {RegistrationModalComponent} from './registration/registration-modal.component';
 
 @Component({
   selector: 'app-menubar',
@@ -15,11 +16,14 @@ export class MenubarComponent implements OnInit {
   ngOnInit() {
   }
 
-  openDialog(): void {
+  openLoginDialog(): void {
     const dialogRef = this.dialog.open(LoginModalComponent);
-
   }
 
+  openRegistrationDialog() {
+    const dialogRef = this.dialog.open(RegistrationModalComponent,{
+    });
+  }
 }
 
 

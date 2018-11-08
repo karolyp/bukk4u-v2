@@ -7,12 +7,14 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CustomModules} from './custom-modules';
 import {MenubarComponent} from './menubar/menubar.component';
 import {LoginModalComponent} from './menubar/login/loginmodal.component';
+import {RegistrationModalComponent} from './menubar/registration/registration-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenubarComponent,
-    LoginModalComponent
+    LoginModalComponent,
+    RegistrationModalComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +25,8 @@ import {LoginModalComponent} from './menubar/login/loginmodal.component';
   ],
   providers: [],
   entryComponents: [
-    LoginModalComponent
+    LoginModalComponent,
+    RegistrationModalComponent
     ],
   bootstrap: [AppComponent]
 })
