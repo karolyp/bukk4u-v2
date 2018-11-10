@@ -1,21 +1,19 @@
 <form [formGroup]="registrationGroup" (ngSubmit)="this.onSubmit()">
   <h1 mat-dialog-title>Regisztráció</h1>
-  <mat-dialog-content>
-    <mat-form-field class="full-width">
-      <input matInput placeholder="Felhasználónév" formControlName="username">
-    </mat-form-field>
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Felhasználónév" formControlName="username">
+  </mat-form-field>
 
-    <mat-form-field class="full-width">
-      <input matInput placeholder="Jelszó" formControlName="password" type="password" (input)="onInput()">
-    </mat-form-field>
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Jelszó" formControlName="password" type="password" (input)="onInput()">
+  </mat-form-field>
 
-    <mat-form-field class="full-width">
-      <input matInput placeholder="Jelszó újra" formControlName="passwordAgain" type="password" (input)="onInput()">
-    </mat-form-field>
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Jelszó újra" formControlName="passwordAgain" type="password" (input)="onInput()">
+  </mat-form-field>
 
-    <mat-checkbox class="full-width" formControlName="privacyPolicy">Az adatvédelmi tájékoztatót elfogadom.</mat-checkbox>
+  <mat-checkbox class="full-width" formControlName="privacyPolicy">Az adatvédelmi tájékoztatót elfogadom.</mat-checkbox>
 
-  </mat-dialog-content>
   <mat-dialog-actions align="end">
     <button mat-raised-button color="accent" type="submit" [disabled]="!registrationGroup.valid">Regisztráció</button>
     <mat-progress-bar mode="indeterminate" *ngIf="isRegistrationInProgress"></mat-progress-bar>
