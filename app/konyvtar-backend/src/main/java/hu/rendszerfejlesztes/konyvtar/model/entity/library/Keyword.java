@@ -1,4 +1,4 @@
-package hu.rendszerfejlesztes.konyvtar.model.entity;
+package hu.rendszerfejlesztes.konyvtar.model.entity.library;
 
 import lombok.Data;
 import lombok.ToString;

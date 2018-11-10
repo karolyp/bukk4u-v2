@@ -1,7 +1,6 @@
-package hu.rendszerfejlesztes.konyvtar.model.entity;
+package hu.rendszerfejlesztes.konyvtar.model.entity.library;
 
 import lombok.Data;
-import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,8 +9,7 @@ import javax.persistence.Id;
 
 @Entity
 @Data
-@ToString
-public class Category {
+public class Author {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,11 +17,11 @@ public class Category {
 
     private String name;
 
-    public Category() {
+    public Author() {
 
     }
 
-    public Category(String name) {
+    public Author(String name) {
         this.name = name;
     }
 

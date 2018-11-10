@@ -10,7 +10,8 @@ import {RegistrationModalComponent} from './registration/registration-modal.comp
 })
 export class MenubarComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog) {
+  }
 
 
   ngOnInit() {
@@ -21,8 +22,7 @@ export class MenubarComponent implements OnInit {
   }
 
   openRegistrationDialog() {
-    const dialogRef = this.dialog.open(RegistrationModalComponent,{
-    });
+    const dialogRef = this.dialog.open(RegistrationModalComponent, {});
   }
 }
 

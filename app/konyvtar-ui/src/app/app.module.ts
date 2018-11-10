@@ -8,22 +8,29 @@ import {CustomModules} from './custom-modules';
 import {MenubarComponent} from './menubar/menubar.component';
 import {LoginModalComponent} from './menubar/login/loginmodal.component';
 import {RegistrationModalComponent} from './menubar/registration/registration-modal.component';
+import {HttpClientModule} from '@angular/common/http';
+import {UserService} from './services/user.service';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenubarComponent,
     LoginModalComponent,
-    RegistrationModalComponent
+    RegistrationModalComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     CustomModules,
-
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    UserService
+  ],
   entryComponents: [
     LoginModalComponent,
     RegistrationModalComponent
