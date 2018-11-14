@@ -96,6 +96,13 @@ INSERT INTO `rating` VALUES (1,4,'Tetszett!',1,1),(2,3,'Elment egynek..',1,2),(3
 UNLOCK TABLES;
 
 --
+-- Dumping data for table `rating`
+--
+
+/*!40000 ALTER TABLE `rating` DISABLE KEYS */;
+/*!40000 ALTER TABLE `rating` ENABLE KEYS */;
+
+--
 -- Dumping data for table `token`
 --
 

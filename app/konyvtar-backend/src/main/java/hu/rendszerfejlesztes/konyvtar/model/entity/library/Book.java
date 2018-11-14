@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import java.util.Date;
 import java.util.List;
 
@@ -50,5 +51,8 @@ public class Book {
 
     @Enumerated(EnumType.STRING)
     private Language language;
+
+    @OneToMany(mappedBy = "book")
+    private List<Rating> ratings;
 
 }

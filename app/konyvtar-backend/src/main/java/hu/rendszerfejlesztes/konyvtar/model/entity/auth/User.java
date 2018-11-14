@@ -1,6 +1,7 @@
 package hu.rendszerfejlesztes.konyvtar.model.entity.auth;
 
 import hu.rendszerfejlesztes.konyvtar.model.entity.auth.dto.UserDTO;
+import hu.rendszerfejlesztes.konyvtar.model.entity.library.Rating;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,8 +17,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 @Data
@@ -44,6 +47,9 @@ public class User {
 
     @OneToOne(cascade = CascadeType.PERSIST)
     private Token token;
+
+    @OneToMany(mappedBy = "user")
+    private List<Rating> ratings;
 
     public UserDTO toDto() {
         return new UserDTO(id, username, null);
