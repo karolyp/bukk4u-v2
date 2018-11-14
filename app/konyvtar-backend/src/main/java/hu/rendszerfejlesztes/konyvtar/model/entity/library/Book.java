@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import java.util.Date;
@@ -25,6 +26,9 @@ public class Book {
     private Long id;
 
     private String title;
+
+    @Lob
+    private String description;
 
     private Date date;
 
