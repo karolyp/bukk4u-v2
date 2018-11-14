@@ -11,4 +11,8 @@ export class UserService {
     return this.http.post(AppConstants.API_URL + "/user", user)
   }
 
+  loginUser(user : any){
+    return this.http.post(AppConstants.API_URL + "/login", user)
+  }
+
 }

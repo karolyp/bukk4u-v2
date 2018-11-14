@@ -6,7 +6,7 @@ import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CustomModules} from './custom-modules';
 import {MenubarComponent} from './menubar/menubar.component';
-import {LoginModalComponent} from './menubar/login/loginmodal.component';
+import {LoginModalComponent} from './menubar/login/login-modal.component';
 import {RegistrationModalComponent} from './menubar/registration/registration-modal.component';
 import {HttpClientModule} from '@angular/common/http';
 import {UserService} from './services/user.service';

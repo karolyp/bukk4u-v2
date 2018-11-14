@@ -4,16 +4,34 @@
     Online könyvtár
   </span>
   <span class="spacer"></span>
-  <button mat-flat-button color="primary">
+  <button mat-flat-button color="primary" *ngIf="isUserLoggedIn">
     <mat-icon>search</mat-icon>
     Keresés
   </button>
-  <button mat-flat-button color="primary" (click)="openLoginDialog()">
+  <button mat-flat-button color="primary" (click)="openLoginDialog()" *ngIf="!isUserLoggedIn">
     <mat-icon>person</mat-icon>
     Belépés
   </button>
-  <button mat-flat-button color="primary" (click)="openRegistrationDialog()">
+  <button mat-flat-button color="primary" (click)="openRegistrationDialog()" *ngIf="!isUserLoggedIn">
     <mat-icon>person_add</mat-icon>
     Regisztráció
   </button>
+  <button mat-flat-button color="primary" [matMenuTriggerFor]="menu" *ngIf="isUserLoggedIn">
+    <mat-icon>person</mat-icon>
+    {{ this.username }} profilja
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>person</mat-icon>
+      Profil megtektintése
+    </button>
+    <button mat-menu-item>
+      <mat-icon>edit</mat-icon>
+      Profil szerkesztése
+    </button>
+    <button mat-menu-item (click)="logOut()">
+      <mat-icon>exit_to_app</mat-icon>
+      Kijelentkezés
+    </button>
+  </mat-menu>
 </mat-toolbar>

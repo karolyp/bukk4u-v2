@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../services/user.service';
 import {MatDialogRef, MatSnackBar} from '@angular/material';
@@ -38,7 +38,7 @@ export class RegistrationModalComponent {
       username: this.registrationGroup.value['username'],
       password: this.registrationGroup.value['password']
     }).subscribe(data => {
-      this.snackBar.open('You have been successfully registered!', 'Close', {
+      this.snackBar.open(`Sikeresen regisztráció, ${this.registrationGroup.value['username']}!`, 'Bezár', {
         duration: 3000
       });
       this.isRegistrationInProgress = false;
