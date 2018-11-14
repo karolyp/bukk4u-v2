@@ -1,5 +1,7 @@
 package hu.rendszerfejlesztes.konyvtar.service;
 
+import org.springframework.stereotype.Service;
+
 import hu.rendszerfejlesztes.konyvtar.exception.UserExistsException;
 import hu.rendszerfejlesztes.konyvtar.model.entity.auth.Role;
 import hu.rendszerfejlesztes.konyvtar.model.entity.auth.User;
@@ -7,7 +9,6 @@ import hu.rendszerfejlesztes.konyvtar.model.entity.auth.dto.UserDTO;
 import hu.rendszerfejlesztes.konyvtar.model.repository.UserRepository;
 import hu.rendszerfejlesztes.konyvtar.utils.BCrypt;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j

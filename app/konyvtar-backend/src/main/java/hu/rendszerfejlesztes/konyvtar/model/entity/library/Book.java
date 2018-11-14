@@ -51,4 +51,56 @@ public class Book {
     @Enumerated(EnumType.STRING)
     private Language language;
 
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public List<Category> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
+	}
+
+	public List<Author> getAuthors() {
+		return authors;
+	}
+
+	public void setAuthors(List<Author> authors) {
+		this.authors = authors;
+	}
+
+	public List<Keyword> getKeywords() {
+		return keywords;
+	}
+
+	public void setKeywords(List<Keyword> keywords) {
+		this.keywords = keywords;
+	}
+
+	public Language getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(Language language) {
+		this.language = language;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
 }
