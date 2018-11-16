@@ -1,5 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -8,6 +9,7 @@ import {CustomModules} from './custom-modules';
 import {MenubarComponent} from './menubar/menubar.component';
 import {LoginModalComponent} from './menubar/login/login-modal.component';
 import {RegistrationModalComponent} from './menubar/registration/registration-modal.component';
+import {SearchModalComponent} from './menubar/search/search-modal.component';
 import {HttpClientModule} from '@angular/common/http';
 import {UserService} from './services/user.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -18,6 +20,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MenubarComponent,
     LoginModalComponent,
     RegistrationModalComponent,
+    SearchModalComponent,
   ],
   imports: [
     BrowserModule,
