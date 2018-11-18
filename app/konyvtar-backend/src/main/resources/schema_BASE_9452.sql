@@ -39,7 +39,6 @@ DROP TABLE IF EXISTS `book`;
 CREATE TABLE `book` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `date` datetime DEFAULT NULL,
-  `description` longtext,
   `language` varchar(255) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -120,25 +119,6 @@ CREATE TABLE `keywords` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `rating`
---
-
-DROP TABLE IF EXISTS `rating`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `rating` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `stars` int(11) DEFAULT NULL,
-  `text_rating` longtext,
-  `book_id` bigint(20) DEFAULT NULL,
-  `user_id` bigint(20) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FK7y1acs6la7vkgb5ulm44729sc` (`book_id`),
-  KEY `FKpn05vbx6usw0c65tcyuce4dw5` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Table structure for table `token`
 --
 
@@ -146,10 +126,9 @@ DROP TABLE IF EXISTS `token`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `token` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `token_uuid` binary(255) NOT NULL,
   `expires_at` datetime DEFAULT NULL,
-  `token_uuid` binary(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`token_uuid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -166,11 +145,11 @@ CREATE TABLE `user` (
   `b_crypt_hash` varchar(255) NOT NULL,
   `role` varchar(255) DEFAULT NULL,
   `username` varchar(50) NOT NULL,
-  `token_id` bigint(20) DEFAULT NULL,
+  `token_uuid` binary(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_sb8bbouer5wak8vyiiy4pf2bx` (`username`),
-  KEY `FKr7pd8gnabslvvptf7rvb4jij4` (`token_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `FK9ijiocmj2eh5ro6m9gf6bsx22` (`token_uuid`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -182,4 +161,4 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-15 21:38:32
+-- Dump completed

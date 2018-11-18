@@ -1,5 +1,6 @@
 package hu.rendszerfejlesztes.konyvtar.model.entity.auth.dto;
 
+
 public class UserDTO {
 
     private Long id;

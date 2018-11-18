@@ -12,7 +12,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+
 
 @Entity
 public class Book {
@@ -22,6 +25,9 @@ public class Book {
     private Long id;
 
     private String title;
+
+    @Lob
+    private String description;
 
     private Date date;
 
@@ -48,6 +54,9 @@ public class Book {
 
     @Enumerated(EnumType.STRING)
     private Language language;
+
+    @OneToMany(mappedBy = "book")
+    private List<Rating> ratings;
 
 	public String getTitle() {
 		return title;
@@ -100,5 +109,7 @@ public class Book {
 	public Long getId() {
 		return id;
 	}
+
+
 
 }

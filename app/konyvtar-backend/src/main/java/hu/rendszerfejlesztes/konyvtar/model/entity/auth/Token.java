@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -13,9 +14,9 @@ import org.hibernate.annotations.GenericGenerator;
 public class Token {
 
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(
-            name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private UUID tokenUuid;
 
     private Date expiresAt;

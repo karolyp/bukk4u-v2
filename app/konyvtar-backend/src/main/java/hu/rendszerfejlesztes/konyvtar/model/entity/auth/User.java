@@ -1,5 +1,8 @@
 package hu.rendszerfejlesztes.konyvtar.model.entity.auth;
 
+
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,11 +11,12 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
 import hu.rendszerfejlesztes.konyvtar.model.entity.auth.dto.UserDTO;
+import hu.rendszerfejlesztes.konyvtar.model.entity.library.Rating;
 
 @Entity
 public class User {
@@ -34,9 +38,11 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "token_uuid")
+    @OneToOne(cascade = CascadeType.PERSIST)
     private Token token;
+
+    @OneToMany(mappedBy = "user")
+    private List<Rating> ratings;
 
     public UserDTO toDto() {
         return new UserDTO(id, username, null);

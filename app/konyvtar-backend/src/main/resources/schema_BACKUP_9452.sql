@@ -135,7 +135,11 @@ CREATE TABLE `rating` (
   PRIMARY KEY (`id`),
   KEY `FK7y1acs6la7vkgb5ulm44729sc` (`book_id`),
   KEY `FKpn05vbx6usw0c65tcyuce4dw5` (`user_id`)
+<<<<<<< HEAD
 ) ENGINE=MyISAM AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+=======
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+>>>>>>> [#20] Creating join table to hold ratings and reviews about books. Adding new schema and data sql files.
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -182,4 +186,8 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+<<<<<<< HEAD
 -- Dump completed on 2018-11-15 21:38:32
+=======
+-- Dump completed on 2018-11-14 23:27:03
+>>>>>>> [#20] Creating join table to hold ratings and reviews about books. Adding new schema and data sql files.

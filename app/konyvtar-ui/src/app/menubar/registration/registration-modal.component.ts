@@ -1,7 +1,7 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../services/user.service';
-import {MatSnackBar} from '@angular/material';
+import {MatDialogRef, MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'registration-modal',
@@ -19,7 +19,8 @@ export class RegistrationModalComponent {
 
   isRegistrationInProgress = false;
 
-  constructor(private userService: UserService, private snackBar: MatSnackBar) {
+  constructor(private userService: UserService, private snackBar: MatSnackBar,
+              public dialogRef: MatDialogRef<RegistrationModalComponent>,) {
   }
 
 
@@ -37,17 +38,17 @@ export class RegistrationModalComponent {
       username: this.registrationGroup.value['username'],
       password: this.registrationGroup.value['password']
     }).subscribe(data => {
-      this.snackBar.open('You have been successfully registered!', 'Close', {
-        duration: 2000
+      this.snackBar.open(`Sikeresen regisztráció, ${this.registrationGroup.value['username']}!`, 'Bezár', {
+        duration: 3000
       });
       this.isRegistrationInProgress = false;
-
+      this.dialogRef.close();
     }, error => {
       console.error(
         `Backend returned code ${error.status}, ` +
         `body was: ${error.error}`);
       this.snackBar.open('Error: ' + error.error, 'Close', {
-        duration: 2000
+        duration: 3000
       });
       this.isRegistrationInProgress = false;
 
