@@ -13,16 +13,8 @@ import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
 import hu.rendszerfejlesztes.konyvtar.model.entity.auth.dto.UserDTO;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Entity
-@Data
-@ToString
-@AllArgsConstructor
-@NoArgsConstructor
 public class User {
 
     @Id
@@ -92,4 +84,10 @@ public class User {
     public Long getId() {
     	return id;
     }
+    
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", bCryptHash=" + bCryptHash + ", active=" + active
+				+ ", role=" + role + ", token=" + token + "]";
+	}   
 }

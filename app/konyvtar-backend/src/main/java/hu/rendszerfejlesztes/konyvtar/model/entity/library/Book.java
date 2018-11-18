@@ -1,6 +1,7 @@
 package hu.rendszerfejlesztes.konyvtar.model.entity.library;
 
-import lombok.Data;
+import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -12,11 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import java.util.Date;
-import java.util.List;
 
 @Entity
-@Data
 public class Book {
 
     @Id

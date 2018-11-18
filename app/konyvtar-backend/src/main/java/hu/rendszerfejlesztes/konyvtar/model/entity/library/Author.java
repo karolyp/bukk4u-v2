@@ -1,14 +1,11 @@
 package hu.rendszerfejlesztes.konyvtar.model.entity.library;
 
-import lombok.Data;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-@Data
 public class Author {
 
     @Id
@@ -24,5 +21,17 @@ public class Author {
     public Author(String name) {
         this.name = name;
     }
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Long getId() {
+		return id;
+	}
 
 }

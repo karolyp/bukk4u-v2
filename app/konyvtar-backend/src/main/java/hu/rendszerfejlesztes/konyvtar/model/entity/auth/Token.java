@@ -1,16 +1,15 @@
 package hu.rendszerfejlesztes.konyvtar.model.entity.auth;
 
-import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
+import java.util.Date;
+import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.util.Date;
-import java.util.UUID;
+
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Data
 public class Token {
 
     @Id
@@ -20,5 +19,21 @@ public class Token {
     private UUID tokenUuid;
 
     private Date expiresAt;
+
+	public UUID getTokenUuid() {
+		return tokenUuid;
+	}
+
+	public void setTokenUuid(UUID tokenUuid) {
+		this.tokenUuid = tokenUuid;
+	}
+
+	public Date getExpiresAt() {
+		return expiresAt;
+	}
+
+	public void setExpiresAt(Date expiresAt) {
+		this.expiresAt = expiresAt;
+	}
 
 }

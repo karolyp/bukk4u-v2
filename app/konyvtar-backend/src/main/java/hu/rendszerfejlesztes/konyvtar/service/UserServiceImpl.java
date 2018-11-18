@@ -1,5 +1,7 @@
 package hu.rendszerfejlesztes.konyvtar.service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import hu.rendszerfejlesztes.konyvtar.exception.UserExistsException;
@@ -11,9 +13,10 @@ import hu.rendszerfejlesztes.konyvtar.utils.BCrypt;
 import lombok.extern.slf4j.Slf4j;
 
 @Service
-@Slf4j
 public class UserServiceImpl implements UserService {
 
+	private final Logger log = LoggerFactory.getLogger(getClass());
+	
     private UserRepository userRepository;
 
     public UserServiceImpl(UserRepository userRepository) {
@@ -27,7 +30,7 @@ public class UserServiceImpl implements UserService {
             user.setActive(true);
             user.setRole(Role.USER);
             user.setUsername(userDto.getUsername());
-            user.setBCryptHash(BCrypt.hashpw(userDto.getPassword(), BCrypt.gensalt()));
+            user.setbCryptHash(BCrypt.hashpw(userDto.getPassword(), BCrypt.gensalt()));
             return userRepository.save(user).toDto();
         } else {
             throw new UserExistsException("User already exists in the database!");
