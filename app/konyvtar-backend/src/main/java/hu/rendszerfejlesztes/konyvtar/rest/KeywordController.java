@@ -16,10 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import hu.rendszerfejlesztes.konyvtar.model.entity.library.Keyword;
 import hu.rendszerfejlesztes.konyvtar.model.repository.KeywordRepository;
-import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@Slf4j
 public class KeywordController {
 
 	private final Logger log = LoggerFactory.getLogger(getClass());

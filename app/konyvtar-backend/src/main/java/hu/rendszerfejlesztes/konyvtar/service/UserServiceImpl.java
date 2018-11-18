@@ -50,7 +50,7 @@ public class UserServiceImpl implements UserService {
     public Token getUser(UserDTO userDTO) throws KonyvtarException {
         User u = userRepository.findOneByUsername(userDTO.getUsername());
         if (u != null) {
-            if (BCrypt.checkpw(userDTO.getPassword(), u.getBCryptHash())) {
+            if (BCrypt.checkpw(userDTO.getPassword(), u.getbCryptHash())) {
                 if (u.isActive()) {
                     if (u.getToken() != null) {
                         u.getToken().setExpiresAt(new Date());

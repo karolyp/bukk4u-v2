@@ -16,10 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import hu.rendszerfejlesztes.konyvtar.model.entity.library.Book;
 import hu.rendszerfejlesztes.konyvtar.model.repository.BookRepository;
-import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@Slf4j
 public class BookController {
 
 	private final Logger log = LoggerFactory.getLogger(getClass());

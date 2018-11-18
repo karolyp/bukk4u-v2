@@ -1,8 +1,6 @@
 package hu.rendszerfejlesztes.konyvtar.model.entity.library;
 
-import lombok.Getter;
 
-@Getter
 public enum Language {
 
     ANGOL("angol"),
@@ -43,4 +41,9 @@ public enum Language {
     Language(String language) {
         this.language = language;
     }
+
+	public String getLanguage() {
+		return language;
+	}
+    
 }

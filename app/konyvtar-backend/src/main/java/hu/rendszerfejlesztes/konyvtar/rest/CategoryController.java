@@ -16,10 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import hu.rendszerfejlesztes.konyvtar.model.entity.library.Category;
 import hu.rendszerfejlesztes.konyvtar.model.repository.CategoryRepository;
-import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@Slf4j
 public class CategoryController {
 
 	private final Logger log = LoggerFactory.getLogger(getClass());
