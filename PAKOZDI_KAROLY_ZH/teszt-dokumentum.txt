@@ -1,0 +1,18 @@
+Teszteljárások
+ID: TP_0001
+Test Cases: TC_0001
+Description: termék árának tesztelése
+Step0: Bejelentkezés $USERNAME és $PASSWORD megadásával.
+Step1: A termék böngészőben kiválasztani $TERMEK (random) terméket.
+Step2: A szerkesztő fülön $NEW_PRICE árat megadni.
+Step3: Megnyomni a $SAVE gombot.
+Step4: Ellenzőrizzük az eredményt. Elvárt eredmény: $MSG üzenet, és a szerkesztő fül bezáródása.
+
+
+Tesztesetek
+ID: TC_0001
+TP: TP_0001
+Description: negatív árú termék tesztelése
+Input(s): $USERNAME=admin, $PASSWORD=admin, $TERMEK=lószőrnyíró, $NEW_PRICE=1200.
+Action: az adatok bevitele után nyomjuk meg a $SAVE gombot.
+Expected Output: a megjelenő üzenet: $MSH="Hibás érték", és a hibás beviteli mező pirossá színezése.
