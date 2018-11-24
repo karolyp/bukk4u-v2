@@ -1,6 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -9,10 +8,15 @@ import {CustomModules} from './custom-modules';
 import {MenubarComponent} from './menubar/menubar.component';
 import {LoginModalComponent} from './menubar/login/login-modal.component';
 import {RegistrationModalComponent} from './menubar/registration/registration-modal.component';
-import {SearchModalComponent} from './menubar/search/search-modal.component';
+import {SearchComponent} from './menubar/search/search.component';
 import {HttpClientModule} from '@angular/common/http';
 import {UserService} from './services/user.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {BooksComponent} from './books/books.component';
+import {BookComponent} from './books/book/book.component';
+import {BookService} from './services/book.service';
+import {NotFoundComponent} from './not-found/not-found.component';
+import {HomeComponent} from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MenubarComponent,
     LoginModalComponent,
     RegistrationModalComponent,
-    SearchModalComponent,
+    SearchComponent,
+    BooksComponent,
+    BookComponent,
+    NotFoundComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +40,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     ReactiveFormsModule
   ],
   providers: [
-    UserService
+    UserService,
+    BookService
   ],
   entryComponents: [
     LoginModalComponent,

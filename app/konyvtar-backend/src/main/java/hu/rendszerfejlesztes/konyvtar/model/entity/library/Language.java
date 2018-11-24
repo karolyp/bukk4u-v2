@@ -1,49 +1,50 @@
 package hu.rendszerfejlesztes.konyvtar.model.entity.library;
 
-
 public enum Language {
 
-    ANGOL("angol"),
-    BOLGAR("bolgár"),
-    CIGANY("cigány"),
-    CSEH("cseh"),
-    ESZPERANTO("eszperantó"),
-    ESZT("észt"),
-    FINN("finn"),
-    FRANCIA("francia"),
-    GALEGO("galego"),
-    GOROGG("görög"),
-    HOLLAND("holland"),
-    HORVAT("horvát"),
-    HEBER("héber"),
-    INDONEZ("indonéz"),
-    JIDDIS("jiddis"),
-    KATALAN("katalán"),
-    LATIN("latin"),
-    LENGYEL("lengyel"),
-    MAGYAR("magyar"),
-    NORVEG("norvég"),
-    NEMET("német"),
-    OLASZ("olasz"),
-    OROSZ("orosz"),
-    ORMENY("örmény"),
-    PORTUGAL("portugál"),
-    ROMAN("román"),
-    SPANYOL("spanyol"),
-    SVED("svéd"),
-    SZERB("szerb"),
-    SZLOVAK("szlovák"),
-    TOBBNYELVU("többnyelvű"),
-    UKRAN("ukrán");
+    angol("angol"),
+    bolgar("bolgár"),
+    cigany("cigány"),
+    cseh("cseh"),
+    eszperanto("eszperantó"),
+    eszt("észt"),
+    finn("finn"),
+    francia("francia"),
+    galego("galego"),
+    gorog("görög"),
+    holland("holland"),
+    horvat("horvát"),
+    heber("héber"),
+    indonez("indonéz"),
+    jiddis("jiddis"),
+    katalan("katalán"),
+    latin("latin"),
+    lengyel("lengyel"),
+    magyar("magyar"),
+    norveg("norvég"),
+    nemet("német"),
+    olasz("olasz"),
+    orosz("orosz"),
+    ormeny("örmény"),
+    portugal("portugál"),
+    roman("román"),
+    spanyol("spanyol"),
+    sved("svéd"),
+    szerb("szerb"),
+    szlovak("szlovák"),
+    tobbnyelvu("többnyelvű"),
+    ukran("ukrán");
 
-    private String language;
+    private String value;
 
     Language(String language) {
-        this.language = language;
+        this.value = language;
     }
 
-	public String getLanguage() {
-		return language;
+	public String getValue() {
+		return value;
 	}
+
+
     
 }

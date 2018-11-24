@@ -15,6 +15,7 @@ export class MenubarComponent implements OnInit {
 
   isUserLoggedIn
   username
+
   ngOnInit() {
     this.isUserLoggedIn = localStorage.getItem('token') !== null;
     this.username = localStorage.getItem('username');
@@ -39,6 +40,7 @@ export class MenubarComponent implements OnInit {
       window.location.reload();
     }
   }
+
 }
 
 

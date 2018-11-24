@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-  <span>
+  <span routerLink="/" style="cursor: pointer">
     <i class="fas fa-book-reader"></i>
     Online könyvtár
   </span>
@@ -7,6 +7,10 @@
   <button mat-flat-button color="primary" routerLink="/search" *ngIf="isUserLoggedIn">
     <mat-icon>search</mat-icon>
     Keresés
+  </button>
+  <button mat-flat-button color="primary" routerLink="/books">
+    <mat-icon>book</mat-icon>
+    Könyvek
   </button>
   <button mat-flat-button color="primary" (click)="openLoginDialog()" *ngIf="!isUserLoggedIn">
     <mat-icon>person</mat-icon>

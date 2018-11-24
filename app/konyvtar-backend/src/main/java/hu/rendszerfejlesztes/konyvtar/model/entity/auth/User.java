@@ -45,7 +45,10 @@ public class User {
     private List<Rating> ratings;
 
     public UserDTO toDto() {
-        return new UserDTO(id, username, null);
+        UserDTO dto = new UserDTO();
+        dto.setId(id);
+        dto.setUsername(username);
+        return dto;
     }
     public String getUsername() {
     	return username;
