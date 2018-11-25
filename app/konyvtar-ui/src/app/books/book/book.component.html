@@ -2,12 +2,12 @@
   <mat-tab label="Leírás">
     <div style="display: flex; width: 100%;">
       <div style="flex: 1; padding: 10px 0 0 10px">
-        <button mat-mini-fab color="primary">
+        <button mat-mini-fab color="primary" *ngIf="this.previousId !== null" [routerLink]="'/book/' + this.previousId">
           <mat-icon>arrow_back</mat-icon>
         </button>
       </div>
       <div style="flex: 1; text-align: right; padding: 10px 10px 0 0">
-        <button mat-mini-fab color="primary">
+        <button mat-mini-fab color="primary" *ngIf="this.nextId !== null" [routerLink]="'/book/' + this.nextId">
           <mat-icon>arrow_forward</mat-icon>
         </button>
       </div>

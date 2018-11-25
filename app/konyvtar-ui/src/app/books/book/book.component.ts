@@ -11,8 +11,10 @@ import {UserService} from '../../services/user.service';
 })
 export class BookComponent implements OnInit {
 
-  private book: Book = new Book();
+  private book: Book;
   private currentRate: any;
+  private nextId: any;
+  private previousId: any;
 
   constructor(private bookService: BookService,
               public userService: UserService,
@@ -23,6 +25,7 @@ export class BookComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.bookService.getBook(params['id']).subscribe(res => {
+        this.book = new Book();
         res.authors.forEach(e => this.book.authors.push(e.name));
         res.categories.forEach(e => this.book.categories.push(e.name));
         res.keywords.forEach(e => this.book.keywords.push(e.value));
@@ -40,8 +43,20 @@ export class BookComponent implements OnInit {
 
       this.bookService.getBookRatingAverage(params['id']).subscribe(res => {
         this.currentRate = res.average;
+      }, error => {
+        this.router.navigate(['/404']);
       });
+
+      this.bookService.getNextBook(params['id']).subscribe(res => {
+        this.nextId = res.id;
+      });
+
+      this.bookService.getPreviousBook(params['id']).subscribe(res => {
+        this.previousId = res.id;
+      });
+
     });
+
   }
 
 

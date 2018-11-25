@@ -1,12 +1,9 @@
 package hu.rendszerfejlesztes.konyvtar.rest;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
-import hu.rendszerfejlesztes.konyvtar.exception.KonyvtarException;
 import hu.rendszerfejlesztes.konyvtar.model.entity.library.Rating;
 import hu.rendszerfejlesztes.konyvtar.model.repository.RatingRepository;
 import org.slf4j.Logger;
@@ -108,6 +105,37 @@ public class BookController {
 
         return response;
     }
+
+    @GetMapping(path = "/book/{id}/next")
+    @ResponseBody
+    public ResponseEntity<?> getNextBook(@PathVariable Long id) {
+        Optional<Book> bookOpt = bookRepository.findById(id);
+        ResponseEntity<?> response;
+
+        if (bookOpt.isPresent()) {
+            Book next = bookRepository.findFirstByTitleGreaterThanOrderByTitleAsc(bookOpt.get().getTitle());
+            response = ResponseEntity.ok(Collections.singletonMap("id", next == null ? null : next.getId()));
+        } else {
+            response = ResponseEntity.badRequest().body("Ilyen azonosítójú könyv nem létezik!");
+        }
+        return response;
+    }
+
+    @GetMapping(path = "/book/{id}/previous")
+    @ResponseBody
+    public ResponseEntity<?> getPreviousBook(@PathVariable Long id) {
+        Optional<Book> bookOpt = bookRepository.findById(id);
+        ResponseEntity<?> response;
+
+        if (bookOpt.isPresent()) {
+            Book next = bookRepository.findFirstByTitleLessThanOrderByTitleDesc(bookOpt.get().getTitle());
+            response = ResponseEntity.ok(Collections.singletonMap("id", next == null ? null : next.getId()));
+        } else {
+            response = ResponseEntity.badRequest().body("Ilyen azonosítójú könyv nem létezik!");
+        }
+        return response;
+    }
+
 
     @DeleteMapping(path = "/book/{id}")
     @ResponseBody
