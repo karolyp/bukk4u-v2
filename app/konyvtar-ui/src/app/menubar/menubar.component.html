@@ -25,7 +25,7 @@
     {{ this.username }} profilja
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>
+    <button mat-menu-item (click)="openProfileView()">
       <mat-icon>person</mat-icon>
       Profil megtektintése
     </button>

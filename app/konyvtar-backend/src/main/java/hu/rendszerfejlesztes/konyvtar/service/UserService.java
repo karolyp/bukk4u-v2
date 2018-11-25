@@ -9,5 +9,8 @@ public interface UserService {
 
     UserDTO saveUser(UserDTO user) throws UserExistsException;
 
-    Token getUser(UserDTO userDTO) throws KonyvtarException;
+    Token loginUser(UserDTO userDTO) throws KonyvtarException;
+
+    UserDTO getUser(String username, String token) throws KonyvtarException;
+
 }

@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>
+  <mat-icon>person</mat-icon>
+  Profilom
+</h1>
+
+<mat-list style="width: 100%;">
+  <mat-list-item>Felhasználónév: {{user.username}}</mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item>E-mail cím:  {{user.email}}</mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item>Teljes név: {{user.fullName}}</mat-list-item>
+</mat-list>
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="accent" (click)="this.dialogRef.close()">Bezár</button>
+</mat-dialog-actions>

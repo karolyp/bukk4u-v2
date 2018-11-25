@@ -4,7 +4,7 @@ import {UserService} from '../../services/user.service';
 import {MatDialogRef, MatSnackBar} from '@angular/material';
 
 @Component({
-  selector: 'registration-modal',
+  selector: 'app-registration-modal',
   templateUrl: './registration-modal.component.html',
   styleUrls: ['./registration-modal.component.scss']
 })
@@ -20,7 +20,7 @@ export class RegistrationModalComponent {
   isRegistrationInProgress = false;
 
   constructor(private userService: UserService, private snackBar: MatSnackBar,
-              public dialogRef: MatDialogRef<RegistrationModalComponent>,) {
+              public dialogRef: MatDialogRef<RegistrationModalComponent>) {
   }
 
 
