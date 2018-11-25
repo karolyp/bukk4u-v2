@@ -31,6 +31,12 @@ public class Book {
 
     private Date date;
 
+    private String publisher;
+
+    private Integer numberOfPages;
+
+    private String coverUrl;
+
     @ManyToMany(cascade = CascadeType.ALL	)
     @JoinTable(name = "book_categories",
             joinColumns = @JoinColumn(name = "book_id", referencedColumnName = "id"),
@@ -46,7 +52,7 @@ public class Book {
     private List<Author> authors;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "keywords",
+    @JoinTable(name = "book_keywords",
             joinColumns = @JoinColumn(name = "book_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "keyword_id", referencedColumnName = "id")
     )
@@ -117,5 +123,37 @@ public class Book {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
+	}
+
+	public Integer getNumberOfPages() {
+		return numberOfPages;
+	}
+
+	public void setNumberOfPages(Integer numberOfPages) {
+		this.numberOfPages = numberOfPages;
+	}
+
+	public String getCoverUrl() {
+		return coverUrl;
+	}
+
+	public void setCoverUrl(String coverUrl) {
+		this.coverUrl = coverUrl;
+	}
+
+	public List<Rating> getRatings() {
+		return ratings;
+	}
+
+	public void setRatings(List<Rating> ratings) {
+		this.ratings = ratings;
 	}
 }

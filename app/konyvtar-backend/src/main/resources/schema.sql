@@ -26,7 +26,7 @@ CREATE TABLE `author` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,6 +42,9 @@ CREATE TABLE `book` (
   `description` longtext,
   `language` varchar(255) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
+  `publisher` varchar(255) DEFAULT NULL,
+  `number_of_pages` int(11) DEFAULT NULL,
+  `cover_url` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -77,6 +80,21 @@ CREATE TABLE `book_categories` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `book_keywords`
+--
+
+DROP TABLE IF EXISTS `book_keywords`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `book_keywords` (
+  `book_id` bigint(20) NOT NULL,
+  `keyword_id` bigint(20) NOT NULL,
+  KEY `FKs85552w5nwl6s1lobfh5ofj6j` (`keyword_id`),
+  KEY `FKobxm8gdxf4vhmsynxkmrp8sif` (`book_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `category`
 --
 
@@ -102,21 +120,6 @@ CREATE TABLE `keyword` (
   `value` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `keywords`
---
-
-DROP TABLE IF EXISTS `keywords`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `keywords` (
-  `book_id` bigint(20) NOT NULL,
-  `keyword_id` bigint(20) NOT NULL,
-  KEY `FKqlkkn6ojopv5eq339sufgc3g9` (`keyword_id`),
-  KEY `FKow8towbw394pl6feghtnrqhog` (`book_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -150,7 +153,7 @@ CREATE TABLE `token` (
   `expires_at` datetime DEFAULT NULL,
   `token_uuid` binary(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -170,7 +173,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_sb8bbouer5wak8vyiiy4pf2bx` (`username`),
   KEY `FKr7pd8gnabslvvptf7rvb4jij4` (`token_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -182,4 +185,4 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-15 21:38:32
+-- Dump completed on 2018-11-25 14:54:36

@@ -1,8 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Book} from '../../models/Book';
 import {BookService} from '../../services/book.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {MatSnackBar} from '@angular/material';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-book',
@@ -12,26 +12,37 @@ import {MatSnackBar} from '@angular/material';
 export class BookComponent implements OnInit {
 
   private book: Book = new Book();
+  private currentRate: any;
 
   constructor(private bookService: BookService,
+              public userService: UserService,
               private route: ActivatedRoute,
-              private router:Router) {
+              private router: Router) {
   }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.bookService.getBook(params['id']).subscribe(res => {
-        console.log(res);
-        this.book.authors = res.authors;
-        this.book.categories = res.categories;
-        this.book.keywords = res.keywords;
+        res.authors.forEach(e => this.book.authors.push(e.name));
+        res.categories.forEach(e => this.book.categories.push(e.name));
+        res.keywords.forEach(e => this.book.keywords.push(e.value));
         this.book.title = res.title;
         this.book.id = res.id;
         this.book.description = res.description;
+        this.book.date = new Date(res.date).getFullYear();
+        this.book.publisher = res.publisher;
+        this.book.language = res.language;
+        this.book.numberOfPages = res.numberOfPages;
+        this.book.coverUrl = res.coverUrl;
       }, error => {
-          this.router.navigate(['/404']);
+        this.router.navigate(['/404']);
+      });
+
+      this.bookService.getBookRatingAverage(params['id']).subscribe(res => {
+        this.currentRate = res.average;
       });
     });
   }
+
 
 }

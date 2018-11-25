@@ -1,9 +1,14 @@
 package hu.rendszerfejlesztes.konyvtar.rest;
 
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import hu.rendszerfejlesztes.konyvtar.exception.KonyvtarException;
+import hu.rendszerfejlesztes.konyvtar.model.entity.library.Rating;
+import hu.rendszerfejlesztes.konyvtar.model.repository.RatingRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +33,9 @@ public class BookController {
 
     @Autowired
     BookRepository bookRepository;
+
+    @Autowired
+    RatingRepository ratingRepository;
 
     @PostMapping(path = "/book")
     @ResponseBody
@@ -57,6 +65,43 @@ public class BookController {
         Optional<Book> book = bookRepository.findById(id);
         if (book.isPresent()) {
             response = ResponseEntity.ok(book.get());
+        } else {
+            response = ResponseEntity.badRequest().body("Ilyen azonosítójú könyv nem létezik!");
+        }
+
+        return response;
+    }
+
+    @GetMapping(path = "/book/{id}/ratings")
+    @ResponseBody
+    public ResponseEntity<?> findBookRating(@PathVariable Long id) {
+        log.info("Incoming find book with ratings request.");
+        ResponseEntity<?> response;
+        Optional<Book> bookOpt = bookRepository.findById(id);
+        if (bookOpt.isPresent()) {
+            response = ResponseEntity.ok(ratingRepository.findAllByBookId(id));
+        } else {
+            response = ResponseEntity.badRequest().body("Ilyen azonosítójú könyv nem létezik!");
+        }
+
+        return response;
+    }
+
+    @GetMapping(path = "/book/{id}/ratings/average")
+    @ResponseBody
+    public ResponseEntity<?> getBookRatingAverage(@PathVariable Long id) {
+        log.info("Incoming find book with ratings request.");
+        ResponseEntity<?> response;
+        Optional<Book> bookOpt = bookRepository.findById(id);
+        if (bookOpt.isPresent()) {
+            double average = 0;
+            List<Rating> ratings = ratingRepository.findAllByBookId(id);
+            for (Rating rating : ratings) {
+                average += rating.getStars();
+            }
+            average /= ratings.size();
+
+            response = ResponseEntity.ok(Collections.singletonMap("average", average));
         } else {
             response = ResponseEntity.badRequest().body("Ilyen azonosítójú könyv nem létezik!");
         }

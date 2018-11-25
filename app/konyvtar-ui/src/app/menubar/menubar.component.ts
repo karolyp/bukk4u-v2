@@ -13,7 +13,7 @@ export class MenubarComponent implements OnInit {
   constructor(public dialog: MatDialog) {
   }
 
-  isUserLoggedIn
+  isUserLoggedIn;
   username
 
   ngOnInit() {

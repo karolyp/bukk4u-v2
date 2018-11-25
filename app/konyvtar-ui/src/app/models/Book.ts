@@ -1,8 +1,14 @@
 export class Book {
-  title: string;
-  authors: string[];
-  categories: string[];
-  keywords: string[];
+  title: any;
+  authors: any[] = [];
+  categories: any[] = [];
+  keywords: any[] = [];
   id: any;
-  description: string;
+  description: any;
+  date : any;
+  publisher: any;
+  language: any;
+  numberOfPages: any;
+  coverUrl: any;
+
 }

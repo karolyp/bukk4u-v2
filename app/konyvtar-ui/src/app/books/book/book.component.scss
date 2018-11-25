@@ -1,8 +1,42 @@
-.book-card {
-  max-width: 350px;
-  max-height: 450px;
+.container {
+  max-width: 40%;
+  margin: auto;
 }
 
-img {
-  max-width: 50%
+.book-title {
+  text-align: center;
+}
+
+.book-data {
+  display: flex;
+  flex-direction: row;
+}
+
+.book-cover {
+  flex: 1;
+  text-align: center;
+}
+
+.book-details {
+  flex: 1;
+}
+
+.book-cover img {
+  max-height: 350px;
+}
+
+.star {
+  position: relative;
+  display: inline-block;
+  font-size: 2rem;
+  color: #d3d3d3;
+}
+.full {
+  color: #f99601;
+}
+.half {
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  color: #F99601;
 }

@@ -17,6 +17,7 @@ import {BookComponent} from './books/book/book.component';
 import {BookService} from './services/book.service';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {HomeComponent} from './home/home.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import {HomeComponent} from './home/home.component';
     BooksComponent,
     BookComponent,
     NotFoundComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +38,8 @@ import {HomeComponent} from './home/home.component';
     CustomModules,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [
     UserService,

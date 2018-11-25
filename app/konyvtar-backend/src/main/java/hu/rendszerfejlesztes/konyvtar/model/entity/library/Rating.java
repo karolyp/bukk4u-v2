@@ -1,5 +1,6 @@
 package hu.rendszerfejlesztes.konyvtar.model.entity.library;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import hu.rendszerfejlesztes.konyvtar.model.entity.auth.User;
 
 import javax.persistence.Entity;
@@ -9,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
+import java.util.List;
 
 @Entity
 public class Rating {
@@ -19,10 +22,12 @@ public class Rating {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private User user;
 
     @ManyToOne
     @JoinColumn(name = "book_id")
+    @JsonIgnore
     private Book book;
 
     @Lob
@@ -79,4 +84,6 @@ public class Rating {
     public void setStars(Integer stars) {
         this.stars = stars;
     }
+
+
 }

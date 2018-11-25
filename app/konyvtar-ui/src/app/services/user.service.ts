@@ -5,14 +5,19 @@ import {AppConstants} from '../app-constants';
 @Injectable()
 export class UserService {
 
-  constructor(private http: HttpClient){}
-
-  saveUser(user : any) {
-    return this.http.post(AppConstants.API_URL + "/user", user)
+  constructor(private http: HttpClient) {
   }
 
-  loginUser(user : any){
-    return this.http.post(AppConstants.API_URL + "/login", user)
+  saveUser(user: any) {
+    return this.http.post(AppConstants.API_URL + '/user', user);
+  }
+
+  loginUser(user: any) {
+    return this.http.post(AppConstants.API_URL + '/login', user);
+  }
+
+  isLoggedIn() {
+    return localStorage.getItem('token') !== null;
   }
 
 }

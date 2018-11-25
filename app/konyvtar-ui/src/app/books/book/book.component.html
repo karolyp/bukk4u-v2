@@ -1,1 +1,84 @@
-<h1>{{book.title}}</h1>
+<mat-tab-group>
+  <mat-tab label="Leírás">
+    <div style="display: flex; width: 100%;">
+      <div style="flex: 1; padding: 10px 0 0 10px">
+        <button mat-mini-fab color="primary">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+      </div>
+      <div style="flex: 1; text-align: right; padding: 10px 10px 0 0">
+        <button mat-mini-fab color="primary">
+          <mat-icon>arrow_forward</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div class="container">
+      <div class="book-title">
+        <h2>
+          {{book.title}}
+        </h2>
+      </div>
+      <div class="book-data">
+        <div class="book-cover">
+          <img [src]="book.coverUrl"/>
+        </div>
+        <div class="book-details">
+          <mat-list>
+            <mat-divider></mat-divider>
+            <mat-list-item>
+              {{book.authors.length > 1 ? "Szerzők" : "Szerző"}}: {{book.authors.join(", ")}}
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>
+              Megjelenés éve: {{book.date}}
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>
+              Kiadó: {{book.publisher}}
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>
+              {{book.categories.length > 1 ? "Kategóriák" : "Kategória"}}: {{book.categories.join(", ")}}
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>
+              {{book.keywords.length > 1 ? "Kulcsszavak" : "Kulcsszó"}}: {{book.keywords.join(", ")}}
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>
+              Nyelv: {{book.language}}
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>
+              Oldalszám: {{book.numberOfPages}}
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>
+              Értékelés:
+              <ng-template #t let-fill="fill">
+                <span class="star" [class.full]="fill === 100">
+                  <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                </span>
+              </ng-template>
+              <ngb-rating [(rate)]="currentRate" [starTemplate]="t" [readonly]="true" max="5"></ngb-rating>
+
+            </mat-list-item>
+            <mat-divider></mat-divider>
+          </mat-list>
+        </div>
+      </div>
+      <div class="book-description">
+        <p>
+          Leírás:<br/>
+          {{book.description}}
+        </p>
+      </div>
+
+    </div>
+  </mat-tab>
+  <mat-tab label="Értékelések"> Content 2</mat-tab>
+  <mat-tab label="Kölcsönzés" [disabled]="!this.userService.isLoggedIn()">
+
+    Content 3
+  </mat-tab>
+</mat-tab-group>
