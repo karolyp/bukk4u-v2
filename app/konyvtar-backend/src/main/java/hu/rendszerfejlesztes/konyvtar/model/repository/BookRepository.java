@@ -10,5 +10,6 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     Book findFirstByTitleGreaterThanOrderByTitleAsc(String title);
 
     Book findFirstByTitleLessThanOrderByTitleDesc(String title);
+    
 
 }

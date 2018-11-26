@@ -3,6 +3,7 @@ package hu.rendszerfejlesztes.konyvtar.rest;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import hu.rendszerfejlesztes.konyvtar.model.entity.library.Rating;
 import hu.rendszerfejlesztes.konyvtar.model.repository.RatingRepository;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -147,5 +149,27 @@ public class BookController {
         }
         bookRepository.deleteById(id);
         return ResponseEntity.ok("Deleted Book with ID: " + id);
+    }
+    
+    @GetMapping(path = "/book/search")
+    @ResponseBody
+    ResponseEntity<Set<Book>> search(@RequestParam String keyword){
+    	
+    	
+    	 ResponseEntity<Set<Book>> response = null;
+         log.info("Incoming search request.");
+         List<Book> book = bookRepository.findAll();
+         /*for ( keyword : book) {
+        	 response.;
+         }
+        */
+        
+		//cimkében keres
+    	//tartalomban keres
+    	//kulcsszavakban keres
+    	//kategóriában keres
+    	
+    	return response;
+    	
     }
 }
