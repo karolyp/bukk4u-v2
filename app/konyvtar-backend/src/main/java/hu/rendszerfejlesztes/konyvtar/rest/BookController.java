@@ -1,12 +1,11 @@
 package hu.rendszerfejlesztes.konyvtar.rest;
 
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-import hu.rendszerfejlesztes.konyvtar.model.entity.library.Rating;
-import hu.rendszerfejlesztes.konyvtar.model.repository.RatingRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import hu.rendszerfejlesztes.konyvtar.model.entity.library.Book;
+import hu.rendszerfejlesztes.konyvtar.model.entity.library.Category;
+import hu.rendszerfejlesztes.konyvtar.model.entity.library.Keyword;
+import hu.rendszerfejlesztes.konyvtar.model.entity.library.Rating;
 import hu.rendszerfejlesztes.konyvtar.model.repository.BookRepository;
+import hu.rendszerfejlesztes.konyvtar.model.repository.RatingRepository;
 
 @RestController
 @RequestMapping("/api")
@@ -154,22 +157,28 @@ public class BookController {
     @GetMapping(path = "/book/search")
     @ResponseBody
     ResponseEntity<Set<Book>> search(@RequestParam String keyword){
+    	log.info("Incoming search request.");
     	
+    	Set<Book> response = new HashSet<Book>();
     	
-    	 ResponseEntity<Set<Book>> response = null;
-         log.info("Incoming search request.");
-         List<Book> book = bookRepository.findAll();
-         /*for ( keyword : book) {
-        	 response.;
+    	List<Book> books = bookRepository.findAll();
+         for ( Book book : books) {
+        	 if(book.getTitle().equals(keyword)|| book.getDescription().equals(keyword)) {
+        		 response.add(book);
+        	 }
+        	 for(Keyword key : book.getKeywords()) {
+        		 if(key.getValue().equals(keyword)) {
+        			 response.add(book);
+        		 }
+        	 }
+        	 for(Category category : book.getCategories()) {
+        		 if(category.getName().equals(keyword)) {
+        			 response.add(book);
+        		 }
+        	 }
          }
-        */
-        
-		//cimkében keres
-    	//tartalomban keres
-    	//kulcsszavakban keres
-    	//kategóriában keres
-    	
-    	return response;
+            	
+    	return ResponseEntity.ok(response);
     	
     }
 }
