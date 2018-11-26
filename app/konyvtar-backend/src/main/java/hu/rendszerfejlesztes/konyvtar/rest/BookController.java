@@ -156,12 +156,13 @@ public class BookController {
     
     @GetMapping(path = "/book/search")
     @ResponseBody
-    ResponseEntity<Set<Book>> search(@RequestParam String keyword){
+    ResponseEntity<Set<Book>> search(@RequestParam String searchString){
     	log.info("Incoming search request.");
     	
+    	String[] keywords = searchString.split("\\s+");
     	Set<Book> response = new HashSet<Book>();
-    	
     	List<Book> books = bookRepository.findAll();
+    	for(String keyword : keywords) {
          for ( Book book : books) {
         	 if(book.getTitle().equals(keyword)|| book.getDescription().equals(keyword)) {
         		 response.add(book);
@@ -174,10 +175,10 @@ public class BookController {
         	 for(Category category : book.getCategories()) {
         		 if(category.getName().equals(keyword)) {
         			 response.add(book);
-        		 }
-        	 }
-         }
-            	
+        		 	}
+        	 	}
+         	}
+    	}
     	return ResponseEntity.ok(response);
     	
     }
