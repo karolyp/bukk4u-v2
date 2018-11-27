@@ -76,9 +76,14 @@
 
     </div>
   </mat-tab>
-  <mat-tab label="Értékelések"> Content 2</mat-tab>
+  <mat-tab label="Értékelések">
+    <ng-template matTabContent>
+      <app-ratings [bookId]="book.id"></app-ratings>
+    </ng-template>
+  </mat-tab>
   <mat-tab label="Kölcsönzés" [disabled]="!this.userService.isLoggedIn()">
-
-    Content 3
+    <ng-template matTabContent>
+      <app-rental></app-rental>
+    </ng-template>
   </mat-tab>
 </mat-tab-group>

@@ -19,6 +19,9 @@ import {NotFoundComponent} from './not-found/not-found.component';
 import {HomeComponent} from './home/home.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ProfileComponent } from './profile/profile.component';
+import { RatingsComponent } from './books/book/ratings/ratings.component';
+import { RatingComponent } from './books/book/ratings/rating/rating.component';
+import { RentalComponent } from './books/book/rental/rental.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,9 @@ import { ProfileComponent } from './profile/profile.component';
     NotFoundComponent,
     HomeComponent,
     ProfileComponent,
+    RatingsComponent,
+    RatingComponent,
+    RentalComponent,
   ],
   imports: [
     BrowserModule,

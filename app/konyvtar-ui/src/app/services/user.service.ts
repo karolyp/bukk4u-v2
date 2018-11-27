@@ -11,7 +11,7 @@ export class UserService {
   }
 
   saveUser(user: any) {
-    return this.http.post(AppConstants.API_URL + '/api//user', user);
+    return this.http.post(AppConstants.API_URL + '/api/username', user);
   }
 
   loginUser(user: any) {
@@ -29,13 +29,17 @@ export class UserService {
       'Access-Control-Allow-Headers': 'Content-Type',
       'Authorization': token
     });
-    return this.http.get(AppConstants.API_URL + '/api/user?username=' + username, {
+    return this.http.get(AppConstants.API_URL + '/api/username?username=' + username, {
       headers: headers,
     });
   }
 
   isLoggedIn() {
     return localStorage.getItem('token') !== null;
+  }
+
+  getUsernameFromLocalStorage(){
+    return localStorage.getItem('username');
   }
 
 }

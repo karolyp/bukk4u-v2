@@ -14,3 +14,21 @@ $theme: mat-light-theme($primary, $accent, $warn);
 body {
   margin: 0;
 }
+
+.star {
+  position: relative;
+  display: inline-block;
+  font-size: 2rem;
+  color: #d3d3d3;
+}
+
+.full {
+  color: #f99601;
+}
+
+.half {
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  color: #F99601;
+}

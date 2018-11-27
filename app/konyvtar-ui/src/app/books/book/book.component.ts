@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {Book} from '../../models/Book';
 import {BookService} from '../../services/book.service';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -11,7 +11,7 @@ import {UserService} from '../../services/user.service';
 })
 export class BookComponent implements OnInit {
 
-  private book: Book;
+  private book: Book = new Book();
   private currentRate: any;
   private nextId: any;
   private previousId: any;
@@ -25,7 +25,9 @@ export class BookComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.bookService.getBook(params['id']).subscribe(res => {
-        this.book = new Book();
+        this.book.authors = [];
+        this.book.categories = [];
+        this.book.keywords = [];
         res.authors.forEach(e => this.book.authors.push(e.name));
         res.categories.forEach(e => this.book.categories.push(e.name));
         res.keywords.forEach(e => this.book.keywords.push(e.value));

@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.13, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: konyvtar
+-- Host: localhost    Database: konyvtar
 -- ------------------------------------------------------
 -- Server version	8.0.13
 
@@ -91,7 +91,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `rating` WRITE;
 /*!40000 ALTER TABLE `rating` DISABLE KEYS */;
-INSERT INTO `rating` VALUES (1,4,'Tetszett!',1,1),(2,3,'Elment egynek..',1,2),(3,4,'Tetszett!',2,3),(4,5,'Kiváló!',2,4),(5,2,'Tetszett!',3,5),(6,4,'Kiváló!',3,4),(7,5,'Tetszett!',4,3),(8,3,'Elment egynek..',4,2),(9,2,'Elment egynek..',5,1),(10,4,'Kiváló!',5,2),(11,5,'Tetszett!',6,3),(12,2,'Elment egynek..',6,4),(13,3,'Elment egynek..',7,5),(14,2,'Elment egynek..',7,4),(15,1,'Nem értettem belőle semmit!',8,3),(16,2,'Elment egynek..',8,2),(17,4,'Tetszett!',9,1),(18,5,'Tetszett!',9,2),(19,5,'Tetszett!',10,3),(20,5,'Tetszett!',10,4),(21,4,'Tetszett!',11,5),(22,3,'Elment egynek..',11,4),(23,2,'Elment egynek..',12,3),(24,3,'Elment egynek..',12,2),(25,4,'Egész jó!',13,1),(26,5,'Tetszett!',13,2),(27,2,'Elment egynek..',14,3),(28,3,'Elment egynek..',14,4),(29,1,'Nem értettem belőle semmit!',15,5),(30,5,'Tetszett!',15,4),(31,2,'Elment egynek..',16,3),(32,3,'Elment egynek..',16,2),(33,4,'Tetszett!',17,1),(34,5,'Tetszett!',17,2),(35,2,'Nem értettem belőle semmit!',18,3),(36,3,'Elment egynek..',18,4),(37,4,'Tetszett!',19,5),(38,5,'Tetszett!',19,4),(39,2,'Nem értettem belőle semmit!',20,3),(40,1,'Nem értettem belőle semmit!',20,2);
+INSERT INTO `rating` VALUES (1,4,'Tetszett!',1,1,'2018-11-21 20:09:19'),(2,3,'Elment egynek..',1,2,'2018-11-17 20:09:19'),(3,4,'Tetszett!',2,3,'2018-11-25 20:09:19'),(4,5,'Kiváló!',2,4,'2018-11-16 20:09:19'),(5,2,'Tetszett!',3,5,'2018-11-19 20:09:19'),(6,4,'Kiváló!',3,4,'2018-11-20 20:09:19'),(7,5,'Tetszett!',4,3,'2018-11-16 20:09:19'),(8,3,'Elment egynek..',4,2,'2018-11-22 20:09:19'),(9,2,'Elment egynek..',5,1,'2018-11-18 20:09:19'),(10,4,'Kiváló!',5,2,'2018-11-27 20:09:19'),(11,5,'Tetszett!',6,3,'2018-11-26 20:09:19'),(12,2,'Elment egynek..',6,4,'2018-11-21 20:09:19'),(13,3,'Elment egynek..',7,5,'2018-11-15 20:09:19'),(14,2,'Elment egynek..',7,4,'2018-11-25 20:09:19'),(15,1,'Nem értettem belőle semmit!',8,3,'2018-11-26 20:09:19'),(16,2,'Elment egynek..',8,2,'2018-11-14 20:09:19'),(17,4,'Tetszett!',9,1,'2018-11-21 20:09:19'),(18,5,'Tetszett!',9,2,'2018-11-18 20:09:19'),(19,5,'Tetszett!',10,3,'2018-11-17 20:09:19'),(20,5,'Tetszett!',10,4,'2018-11-14 20:09:19'),(21,4,'Tetszett!',11,5,'2018-11-23 20:09:19'),(22,3,'Elment egynek..',11,4,'2018-11-14 20:09:19'),(23,2,'Elment egynek..',12,3,'2018-11-17 20:09:19'),(24,3,'Elment egynek..',12,2,'2018-11-16 20:09:19'),(25,4,'Egész jó!',13,1,'2018-11-27 20:09:19'),(26,5,'Tetszett!',13,2,'2018-11-19 20:09:19'),(27,2,'Elment egynek..',14,3,'2018-11-16 20:09:19'),(28,3,'Elment egynek..',14,4,'2018-11-24 20:09:19'),(29,1,'Nem értettem belőle semmit!',15,5,'2018-11-16 20:09:19'),(30,5,'Tetszett!',15,4,'2018-11-22 20:09:19'),(31,2,'Elment egynek..',16,3,'2018-11-22 20:09:19'),(32,3,'Elment egynek..',16,2,'2018-11-17 20:09:19'),(33,4,'Tetszett!',17,1,'2018-11-17 20:09:19'),(34,5,'Tetszett!',17,2,'2018-11-20 20:09:19'),(35,2,'Nem értettem belőle semmit!',18,3,'2018-11-24 20:09:19'),(36,3,'Elment egynek..',18,4,'2018-11-19 20:09:19'),(37,4,'Tetszett!',19,5,'2018-11-22 20:09:19'),(38,5,'Tetszett!',19,4,'2018-11-27 20:09:19'),(39,2,'Nem értettem belőle semmit!',20,3,'2018-11-25 20:09:19'),(40,1,'Nem értettem belőle semmit!',20,2,'2018-11-19 20:09:19'),(41,5,'asdf',2,1,'2018-11-27 21:25:55'),(42,1,'Szerintem ez nem olyan jó.',11,1,'2018-11-27 21:28:59'),(43,5,'asdf',3,1,'2018-11-27 21:32:47'),(44,5,'asdf',4,1,'2018-11-27 21:34:39');
 /*!40000 ALTER TABLE `rating` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -123,4 +123,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed
+-- Dump completed on 2018-11-27 21:49:01

@@ -33,5 +33,8 @@ export class BookService {
     return this.http.get(AppConstants.API_URL + '/api/book/' + id + '/previous');
   }
 
+  saveRating(rating: any) : Observable<any>{
+    return this.http.post(AppConstants.API_URL + '/api/rating', rating);
+  }
 
 }

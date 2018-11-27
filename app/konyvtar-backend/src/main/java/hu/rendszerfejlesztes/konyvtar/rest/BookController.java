@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -81,7 +82,7 @@ public class BookController {
         ResponseEntity<?> response;
         Optional<Book> bookOpt = bookRepository.findById(id);
         if (bookOpt.isPresent()) {
-            response = ResponseEntity.ok(ratingRepository.findAllByBookId(id));
+            response = ResponseEntity.ok(ratingRepository.findAllByBookId(id).stream().map(Rating::toDTO).collect(Collectors.toList()));
         } else {
             response = ResponseEntity.badRequest().body("Ilyen azonosítójú könyv nem létezik!");
         }

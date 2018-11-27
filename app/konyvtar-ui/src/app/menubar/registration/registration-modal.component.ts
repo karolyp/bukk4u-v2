@@ -19,8 +19,6 @@ export class RegistrationModalComponent {
   });
 
   email = new FormControl('', [Validators.required, Validators.email]);
-
-
   isRegistrationInProgress = false;
 
   constructor(private userService: UserService, private snackBar: MatSnackBar,
