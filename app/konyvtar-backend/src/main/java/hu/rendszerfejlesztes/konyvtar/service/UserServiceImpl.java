@@ -26,12 +26,10 @@ public class UserServiceImpl implements UserService {
 
     private static final String USER_NOT_EXISTS = "Ilyen felhasználó nem létezik!";
     private UserRepository userRepository;
-    private TokenRepository tokenRepository;
 
     public UserServiceImpl(UserRepository userRepository,
                            TokenRepository tokenRepository) {
         this.userRepository = userRepository;
-        this.tokenRepository = tokenRepository;
     }
 
     @Override
@@ -40,11 +38,13 @@ public class UserServiceImpl implements UserService {
             User user = new User();
             user.setActive(true);
             user.setRole(Role.USER);
+            user.setEmail(userDto.getEmail());
+            user.setFullName(userDto.getFullName());
             user.setUsername(userDto.getUsername());
             user.setbCryptHash(BCrypt.hashpw(userDto.getPassword(), BCrypt.gensalt()));
             return userRepository.save(user).toDto();
         } else {
-            throw new UserExistsException("User already exists in the database!");
+            throw new UserExistsException("Ilyen felhasználó létezik!");
         }
     }
 

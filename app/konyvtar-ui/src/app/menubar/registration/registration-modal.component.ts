@@ -11,11 +11,15 @@ import {MatDialogRef, MatSnackBar} from '@angular/material';
 export class RegistrationModalComponent {
   registrationGroup = new FormGroup({
     username: new FormControl('', [Validators.required, Validators.minLength(4)]),
+    fullName: new FormControl('', [Validators.required,]),
     password: new FormControl('', [Validators.required, Validators.minLength(8)]),
     passwordAgain: new FormControl('', Validators.required),
     passwordsMatch: new FormControl(''),
     privacyPolicy: new FormControl('', Validators.requiredTrue)
   });
+
+  email = new FormControl('', [Validators.required, Validators.email]);
+
 
   isRegistrationInProgress = false;
 
@@ -36,24 +40,33 @@ export class RegistrationModalComponent {
     this.isRegistrationInProgress = true;
     this.userService.saveUser({
       username: this.registrationGroup.value['username'],
-      password: this.registrationGroup.value['password']
+      password: this.registrationGroup.value['password'],
+      fullName: this.registrationGroup.value['fullName'],
+      email: this.email.value,
     }).subscribe(data => {
-      this.snackBar.open(`Sikeresen regisztráció, ${this.registrationGroup.value['username']}!`, 'Bezár', {
+      this.snackBar.open(`Sikeres regisztráció, ${this.registrationGroup.value['username']}!`, 'Bezár', {
         duration: 3000
       });
       this.isRegistrationInProgress = false;
       this.dialogRef.close();
     }, error => {
-      console.error(
-        `Backend returned code ${error.status}, ` +
-        `body was: ${error.error}`);
-      this.snackBar.open('Error: ' + error.error, 'Close', {
+      console.log(error);
+
+      let errorMsg = 'Hiba: ' + ((error.status === 400) ? error.error : 'Ismeretlen hiba történt!');
+      this.snackBar.open(errorMsg, 'Close', {
         duration: 3000
       });
+
       this.isRegistrationInProgress = false;
 
     });
   }
 
+  getErrorMessage() {
+    return this.email.hasError('email') ? 'Nem valós az e-mail cím!' : '';
+  }
 
+  isFormValid() {
+    return this.registrationGroup.valid && !this.email.hasError('valid') && !this.email.hasError('required');
+  }
 }

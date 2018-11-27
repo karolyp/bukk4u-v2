@@ -5,6 +5,15 @@
   </mat-form-field>
 
   <mat-form-field class="full-width">
+    <input matInput placeholder="Teljes név" formControlName="fullName">
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <input matInput placeholder="E-mail cím" [formControl]="email">
+    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
     <input matInput placeholder="Jelszó" formControlName="password" type="password" (input)="onInput()">
   </mat-form-field>
 
@@ -15,7 +24,9 @@
   <mat-checkbox class="full-width" formControlName="privacyPolicy">Az adatvédelmi tájékoztatót elfogadom.</mat-checkbox>
 
   <mat-dialog-actions align="end">
-    <button mat-raised-button color="accent" type="submit" [disabled]="!registrationGroup.valid">Regisztráció</button>
+    <button mat-raised-button color="accent" type="submit" [disabled]="!isFormValid()">
+      Regisztráció
+    </button>
     <mat-progress-bar mode="indeterminate" *ngIf="isRegistrationInProgress"></mat-progress-bar>
   </mat-dialog-actions>
 </form>
