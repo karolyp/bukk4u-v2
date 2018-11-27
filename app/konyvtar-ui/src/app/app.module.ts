@@ -18,6 +18,7 @@ import {BookService} from './services/book.service';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {HomeComponent} from './home/home.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     BookComponent,
     NotFoundComponent,
     HomeComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
   ],
   entryComponents: [
     LoginModalComponent,
-    RegistrationModalComponent
+    RegistrationModalComponent,
+    ProfileComponent
     ],
   bootstrap: [AppComponent]
 })

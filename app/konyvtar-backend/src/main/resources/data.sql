@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.13, for Win64 (x86_64)
 --
--- Host: localhost    Database: konyvtar
+-- Host: 127.0.0.1    Database: konyvtar
 -- ------------------------------------------------------
 -- Server version	8.0.13
 
@@ -96,12 +96,21 @@ INSERT INTO `rating` VALUES (1,4,'Tetszett!',1,1),(2,3,'Elment egynek..',1,2),(3
 UNLOCK TABLES;
 
 --
+-- Dumping data for table `token`
+--
+
+LOCK TABLES `token` WRITE;
+/*!40000 ALTER TABLE `token` DISABLE KEYS */;
+/*!40000 ALTER TABLE `token` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Dumping data for table `user`
 --
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1, true,'$2a$10$oXDxMZGkczE.NxlzGuch/OvEi/oqJcUT7D/1olaxUiobvDex23bLu','ADMIN','admin',null),(2, true,'$2a$10$GWVIenyoELMhjEH/b8kiVuEHCtXlcBy8W3Ot3bbtXhO1TdY7xir.m','USER','user1',NULL),(3, true,'$2a$10$NUv/I6KbL92kKcnmByxBAOlSpkIL.fmOOEGLPV8/t/ZkUycgEZ19q','USER','user2',NULL),(4, true,'$2a$10$RGLa5jOT7qLYCpKoGfLpvuV1UfTeUxYRelnqbPrc6oSsSIQcU8UdW','USER','user3',NULL),(5, true,'$2a$10$JQvuwbCEa4tjR.u4t5azBOk7VJ6nQB5peqIwcCTRcaXnryODRsM4i','USER','user4',NULL),(6, true,'$2a$10$2g9SghJSK3JYa/SaXTdqCus/JBiNiUfdbtH4D08HmNHXCcYDw7VP2','USER','user5',NULL);
+INSERT INTO `user` VALUES (1,_binary '','$2a$10$oXDxMZGkczE.NxlzGuch/OvEi/oqJcUT7D/1olaxUiobvDex23bLu','ADMIN','admin',NULL,'Admin Béla','admin@admin'),(2,_binary '','$2a$10$GWVIenyoELMhjEH/b8kiVuEHCtXlcBy8W3Ot3bbtXhO1TdY7xir.m','USER','user1',NULL,'User Ferenc','user1@user1'),(3,_binary '','$2a$10$NUv/I6KbL92kKcnmByxBAOlSpkIL.fmOOEGLPV8/t/ZkUycgEZ19q','USER','user2',NULL,'User István','user2@user2'),(4,_binary '','$2a$10$RGLa5jOT7qLYCpKoGfLpvuV1UfTeUxYRelnqbPrc6oSsSIQcU8UdW','USER','user3',NULL,'User Ferdinánd','user3@user3'),(5,_binary '','$2a$10$JQvuwbCEa4tjR.u4t5azBOk7VJ6nQB5peqIwcCTRcaXnryODRsM4i','USER','user4',NULL,'User László','user4@user4'),(6,_binary '','$2a$10$2g9SghJSK3JYa/SaXTdqCus/JBiNiUfdbtH4D08HmNHXCcYDw7VP2','USER','user5',NULL,'User Dániel','user5@user5');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -114,4 +123,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-25 14:55:03
+-- Dump completed

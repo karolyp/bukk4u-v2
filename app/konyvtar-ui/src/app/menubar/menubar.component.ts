@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material';
 import {LoginModalComponent} from './login/login-modal.component';
 import {RegistrationModalComponent} from './registration/registration-modal.component';
+import {ProfileComponent} from '../profile/profile.component';
 
 @Component({
   selector: 'app-menubar',
@@ -14,13 +15,13 @@ export class MenubarComponent implements OnInit {
   }
 
   isUserLoggedIn;
-  username
+  username;
 
   ngOnInit() {
     this.isUserLoggedIn = localStorage.getItem('token') !== null;
     this.username = localStorage.getItem('username');
-    if(this.username === null){
-      this.username = 'Profilom'
+    if (this.username === null) {
+      this.username = 'Profilom';
     }
 
   }
@@ -33,8 +34,12 @@ export class MenubarComponent implements OnInit {
     const dialogRef = this.dialog.open(RegistrationModalComponent, {});
   }
 
+  openProfileView() {
+    const dialogRef = this.dialog.open(ProfileComponent, {});
+  }
+
   logOut() {
-    if(localStorage.getItem('token') !== null){
+    if (localStorage.getItem('token') !== null) {
       localStorage.removeItem('token');
       localStorage.removeItem('username');
       window.location.reload();

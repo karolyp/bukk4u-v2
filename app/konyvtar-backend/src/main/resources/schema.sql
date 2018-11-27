@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.13, for Win64 (x86_64)
 --
--- Host: localhost    Database: konyvtar
+-- Host: 127.0.0.1    Database: konyvtar
 -- ------------------------------------------------------
 -- Server version	8.0.13
 
@@ -153,7 +153,7 @@ CREATE TABLE `token` (
   `expires_at` datetime DEFAULT NULL,
   `token_uuid` binary(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -170,6 +170,8 @@ CREATE TABLE `user` (
   `role` varchar(255) DEFAULT NULL,
   `username` varchar(50) NOT NULL,
   `token_id` bigint(20) DEFAULT NULL,
+  `full_name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_sb8bbouer5wak8vyiiy4pf2bx` (`username`),
   KEY `FKr7pd8gnabslvvptf7rvb4jij4` (`token_id`)
@@ -185,4 +187,4 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-25 14:54:36
+-- Dump completed

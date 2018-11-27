@@ -4,6 +4,7 @@ package hu.rendszerfejlesztes.konyvtar.service;
 import java.util.Date;
 import java.util.UUID;
 
+import hu.rendszerfejlesztes.konyvtar.exception.InvalidTokenException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -21,8 +22,9 @@ import hu.rendszerfejlesztes.konyvtar.utils.BCrypt;
 @Service
 public class UserServiceImpl implements UserService {
 
-	private final Logger log = LoggerFactory.getLogger(getClass());
-	
+    Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
+
+    private static final String USER_NOT_EXISTS = "Ilyen felhasználó nem létezik!";
     private UserRepository userRepository;
     private TokenRepository tokenRepository;
 
@@ -47,7 +49,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Token getUser(UserDTO userDTO) throws KonyvtarException {
+    public Token loginUser(UserDTO userDTO) throws KonyvtarException {
         User u = userRepository.findOneByUsername(userDTO.getUsername());
         if (u != null) {
             if (BCrypt.checkpw(userDTO.getPassword(), u.getbCryptHash())) {
@@ -71,9 +73,22 @@ public class UserServiceImpl implements UserService {
 
             }
         } else {
-            throw new KonyvtarException("Ilyen felhasználó nem létezik!");
+            throw new KonyvtarException(USER_NOT_EXISTS);
         }
     }
 
+    @Override
+    public UserDTO getUser(String username, String token) throws KonyvtarException {
+        User user = userRepository.findOneByUsername(username);
+        if (user != null && user.getToken() != null) {
+            if (user.getToken().getTokenUuid().toString().equals(token)) {
+                return user.toDto();
+            } else {
+                throw new InvalidTokenException("Nem megfelelo token.");
+            }
+        } else {
+            throw new KonyvtarException("Felhasználó/token nem található.");
+        }
+    }
 
 }

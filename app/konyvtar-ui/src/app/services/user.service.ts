@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {AppConstants} from '../app-constants';
+import {parseErrorsFromMarkup} from 'tslint/lib/verify/parse';
+import {Observable} from 'rxjs';
 
 @Injectable()
 export class UserService {
@@ -9,11 +11,27 @@ export class UserService {
   }
 
   saveUser(user: any) {
-    return this.http.post(AppConstants.API_URL + '/user', user);
+    return this.http.post(AppConstants.API_URL + '/api//user', user);
   }
 
   loginUser(user: any) {
-    return this.http.post(AppConstants.API_URL + '/login', user);
+    return this.http.post(AppConstants.API_URL + '/api/login', user);
+  }
+
+  getUser(username: any): Observable<any> {
+    let token = JSON.parse(localStorage.getItem('token'));
+    if (token !== null) {
+      token = token.tokenUuid;
+    }
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Access-Control-Allow-Headers': 'Content-Type',
+      'Authorization': token
+    });
+    return this.http.get(AppConstants.API_URL + '/api/user?username=' + username, {
+      headers: headers,
+    });
   }
 
   isLoggedIn() {

@@ -29,9 +29,12 @@ public class User {
     @NotNull
     private String username;
 
+    private String fullName;
+
+    private String email;
+
     @NotNull
     private String bCryptHash;
-
 
 	private boolean active;
 
@@ -48,6 +51,8 @@ public class User {
         UserDTO dto = new UserDTO();
         dto.setId(id);
         dto.setUsername(username);
+        dto.setFullName(fullName);
+        dto.setEmail(email);
         return dto;
     }
     public String getUsername() {
@@ -98,5 +103,17 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", bCryptHash=" + bCryptHash + ", active=" + active
 				+ ", role=" + role + ", token=" + token + "]";
-	}   
+	}
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }
