@@ -1,0 +1,26 @@
+<ng-template #t let-fill="fill">
+                <span class="star" [class.full]="fill === 100">
+                  <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                </span>
+</ng-template>
+
+<app-rating *ngFor="let rating of ratings" [rating]="rating"></app-rating>
+<div class="centered" *ngIf="this.userService.isLoggedIn()">
+
+  <div *ngIf="!userRated">
+    <h3>Értékeld ezt a könyvet!</h3>
+    <div class="left">
+      <mat-form-field style="width: 100%">
+        <textarea matInput [formControl]="this.ratingText"
+                  placeholder="Ide írhatod hosszabban a véleményed..."></textarea>
+      </mat-form-field>
+      <ngb-rating [(rate)]="rate" [starTemplate]="t" max="5"></ngb-rating>
+    </div>
+    <button mat-flat-button color="primary" (click)="sendRating()"
+    [disabled]="this.ratingText.hasError('required')">Küldés</button>
+  </div>
+
+  <h3 *ngIf="userRated">
+    Te már értékelted ezt a könyvet!
+  </h3>
+</div>

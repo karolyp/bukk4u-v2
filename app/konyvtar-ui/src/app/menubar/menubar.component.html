@@ -1,0 +1,41 @@
+<mat-toolbar color="primary">
+  <span routerLink="/" style="cursor: pointer">
+    <i class="fas fa-book-reader"></i>
+    Online könyvtár
+  </span>
+  <span class="spacer"></span>
+  <button mat-flat-button color="primary" routerLink="/search" *ngIf="isUserLoggedIn">
+    <mat-icon>search</mat-icon>
+    Keresés
+  </button>
+  <button mat-flat-button color="primary" routerLink="/books">
+    <mat-icon>book</mat-icon>
+    Könyvek
+  </button>
+  <button mat-flat-button color="primary" (click)="openLoginDialog()" *ngIf="!isUserLoggedIn">
+    <mat-icon>person</mat-icon>
+    Belépés
+  </button>
+  <button mat-flat-button color="primary" (click)="openRegistrationDialog()" *ngIf="!isUserLoggedIn">
+    <mat-icon>person_add</mat-icon>
+    Regisztráció
+  </button>
+  <button mat-flat-button color="primary" [matMenuTriggerFor]="menu" *ngIf="isUserLoggedIn">
+    <mat-icon>person</mat-icon>
+    {{ this.username }} profilja
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="openProfileView()">
+      <mat-icon>person</mat-icon>
+      Profil megtektintése
+    </button>
+    <button mat-menu-item>
+      <mat-icon>edit</mat-icon>
+      Profil szerkesztése
+    </button>
+    <button mat-menu-item (click)="logOut()">
+      <mat-icon>exit_to_app</mat-icon>
+      Kijelentkezés
+    </button>
+  </mat-menu>
+</mat-toolbar>

@@ -1,0 +1,27 @@
+.container {
+  max-width: 40%;
+  margin: auto;
+}
+
+.book-title {
+  text-align: center;
+}
+
+.book-data {
+  display: flex;
+  flex-direction: row;
+}
+
+.book-cover {
+  flex: 1;
+  text-align: center;
+}
+
+.book-details {
+  flex: 1;
+}
+
+.book-cover img {
+  max-height: 350px;
+}
+

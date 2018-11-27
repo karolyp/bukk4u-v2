@@ -1,0 +1,14 @@
+A könyvtár alkalmazás tesztelése
+
+1. A kód tesztelése
+
+1.1. Unit tesztek
+Az egységtesztek a kód működésének helyességét hivatottak ellenőrizni.
+Ezeket a teszteket a JUnit keretrendszerrel készítjük el, mivel könnyen integrálódik a Spring keretrendszer IoC rendszerébe.
+
+1.2. Statikus forráskódelemzés
+Szoftvermetrikákhoz, klónok, code smellek és egyéb anti-patternek meghatározásához a SonarQube-ot fogjuk használni.
+Ezen kívül fejlesztés közben a Sonarlint plugint használjuk a fejlesztői környezetben, amely segíti a kódolási standardok betartását.
+
+2. A felhasználói felület tesztelése
+A felhasználói felülethez automata teszteket fogunk írni, melyekhez a Selenium nevű integrációs teszt keretrendszert fogjuk használni.
