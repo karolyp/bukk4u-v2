@@ -57,7 +57,7 @@ public class BookController {
     @ResponseBody
     public ResponseEntity<List<Book>> listBook() {
         log.info("Incoming BookList request.");
-        return ResponseEntity.ok(bookRepository.findAll());
+        return ResponseEntity.ok(bookRepository.findAllByOrderByTitleAsc());
     }
 
     @GetMapping(path = "/book/{id}")
